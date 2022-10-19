@@ -1,0 +1,104 @@
+<mat-toolbar color="primary">
+  <span> Sri Annamalaiyar Plumber & Electrician Service Management</span>
+</mat-toolbar>
+
+<div class="container">
+  <form [formGroup]="signupForm">
+    <h1>Signup</h1>
+    <mat-card>
+      <mat-form-field appearance="legacy">
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <input
+          formControlName="name"
+          matInput
+          placeholder="Enter your Name"
+          type="text"
+        />
+        <mat-error
+          *ngIf="
+            signupForm.get('name')?.touched &&
+            signupForm.get('name')?.hasError('required')
+          "
+          >Name is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-icon matSuffix>mail</mat-icon>
+        <input
+          formControlName="email"
+          matInput
+          placeholder="Enter your E-Mail"
+          type="email"
+        />
+        <mat-error
+          *ngIf="
+            signupForm.get('email')?.touched &&
+            signupForm.get('email')?.hasError('required')
+          "
+        >
+          E-Mail is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-icon matSuffix>phone</mat-icon>
+        <input
+          formControlName="phone"
+          matInput
+          placeholder="Enter your Phone"
+          type="tel"
+          maxlength="10"
+        />
+        <mat-error
+          *ngIf="
+            signupForm.get('phone')?.touched &&
+            signupForm.get('phone')?.hasError('required')
+          "
+          >Phone is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-icon matSuffix>place</mat-icon>
+        <textarea
+          rows="3"
+          formControlName="address"
+          matInput
+          placeholder="Enter your Address"
+          type="text"
+        ></textarea>
+        <mat-error
+          *ngIf="
+            signupForm.get('address')?.touched &&
+            signupForm.get('address')?.hasError('required')
+          "
+        >
+          Address is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-icon matSuffix>lock</mat-icon>
+        <input
+          formControlName="password"
+          matInput
+          placeholder="Enter your Password"
+          type="password"
+        />
+        <mat-error
+          *n
+          gIf="signupForm.get('password')?.touched && signupForm.get('password')?.hasError('required')"
+        >
+          Password is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-raised-button color="accent" (click)="signup()">
+          Register
+        </button>
+        <button mat-raised-button color="primary" routerLink="/login">
+          Login
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

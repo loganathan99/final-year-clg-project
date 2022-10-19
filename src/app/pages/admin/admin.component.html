@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <span>Sri Annamalaiyar Plumber & Electrican Service Management</span>
+</mat-toolbar>
+
+<div class="container">
+    <form [formGroup]="form">
+        <h1>AdminLogin</h1>
+        <mat-form-field>
+            <mat-icon matSuffix>email</mat-icon>
+            <input formControlName="email" matInput placeholder="Enter Your Email Id" type="mail">
+            <mat-error
+                *ngIf="form.get('email').touched && form.get('email').invalid && form.get('email').hasError('required')">
+                E-Mail is Required</mat-error>
+            <mat-error
+                *ngIf="form.get('email').touched && form.get('email').invalid && form.get('email').hasError('email')">
+                E-Mail is Invalid</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-icon matSuffix>password</mat-icon>
+            <input formControlName="password" matInput placeholder="Enter Your Password" type="password">
+            <mat-error
+                *ngIf="form.get('password').touched && form.get('password').invalid && form.get('password').hasError('required')">
+                Password is Required</mat-error>
+        </mat-form-field>
+        <div *ngIf="errorMessage">{{errorMessage }}</div>
+            <mat-card-actions>
+               <button mat-raised-button color="accent" (click)="admin()">AdminLogin</button>
+            </mat-card-actions>
+    
+
+    </form>
+</div>

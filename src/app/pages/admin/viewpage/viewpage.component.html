@@ -1,0 +1,26 @@
+<div class="container" *ngIf="users">
+    <h1 class="mat-header">User Details</h1>
+    <mat-accordion multi>
+        <mat-expansion-panel *ngFor="let user of users">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{user.name}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Phone: {{user.phone}}
+                </mat-panel-description>
+                    <mat-panel-description>
+                        email:{{user.email}}
+                    </mat-panel-description>
+            </mat-expansion-panel-header>
+           
+
+         <mat-card-actions *ngFor="let service of user.services; let i  = index">
+           <button mat-raised-button color="primary" routerLink="/admin/viewpage/service/{{service._id}}/{{user._id}}">View Service {{i+1}}</button>
+          </mat-card-actions>
+       </mat-expansion-panel>
+    </mat-accordion>
+</div>
+
+        
+              

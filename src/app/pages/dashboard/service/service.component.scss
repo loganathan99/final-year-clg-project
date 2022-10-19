@@ -1,0 +1,28 @@
+.container {
+    margin: 1em;
+}
+
+.expanded-toolbar {
+    justify-content: space-between;
+    align-items: center;
+}
+mat-form-field {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+
+button {
+    margin-right:1em;
+  
+}
+
+@media only screen and (min-width: 680px) {
+    mat-form-field {
+        width: 60%;
+    }
+
+    .container {
+        margin: 4em;
+    }
+}

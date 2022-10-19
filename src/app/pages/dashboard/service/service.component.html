@@ -1,0 +1,89 @@
+<h1>services</h1>
+
+<form [formGroup]="serviceForm">
+  <mat-card>
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value="none">None</mat-option>
+        <mat-option value="Plumber">Plumber</mat-option>
+        <mat-option value="Electrician">Electrician</mat-option>
+        <mat-option value="Plumber and Electrician"
+          >Plumber and Electrician</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <mat-select formControlName="date"></mat-select>
+      <input matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-card class="service1">
+      <div style="font-weight: bold">Plumber</div>
+      <mat-form-field>
+        <mat-label>Select Plumber Work</mat-label>
+        <mat-select formControlName="Plumber">
+          <mat-option value="none">None</mat-option>
+          <mat-option value="New House Plumbing "
+            >New House Plumbing</mat-option
+          >
+          <mat-option value="Borewell Repairing "
+            >Borewell Repairing</mat-option
+          >
+          <mat-option value="Both Room Fittings">Both Room Fittings</mat-option>
+          <mat-option value="Tap Changing Work">Tap Changing Work</mat-option>
+          <mat-option value="Plastic Water Tank Placement"
+            >Plastic Water Tank Placement</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
+    <mat-card class="service2">
+      <div style="font-weight: bold">Electrician</div>
+      <mat-form-field>
+        <mat-label>Select Electrician Work</mat-label>
+        <mat-select formControlName="Electrician">
+          <mat-option value="none">None</mat-option>
+          <mat-option value="New House wiring work "
+            >New House wiring work</mat-option
+          >
+          <mat-option value="MCB Triping ">MCB Triping</mat-option>
+          <mat-option value="UPS Installing">UPS Installing</mat-option>
+          <mat-option value="Old House Rewiring Work"
+            >Old House Rewiring Work</mat-option
+          >
+          <mat-option value="Switch Replacement work"
+            >Switch Replacement Work</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
+    <mat-form-field>
+      <mat-label>Problem Description</mat-label>
+      <textarea
+        rows="3"
+        formControlName="problem"
+        matInput
+        placeholder="Enter your Problem Description"
+        type="text"
+      ></textarea>
+      <mat-error
+        *ngIf="
+          serviceForm.get('problem')?.touched &&
+          serviceForm.get('problem')?.hasError('required')
+        "
+      >
+        Problem is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="submit()">
+        submit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

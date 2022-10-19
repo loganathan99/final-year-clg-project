@@ -1,0 +1,53 @@
+<div *ngIf="service && user">
+  <mat-card>
+    <mat-card-subtitle>{{ service._id }}</mat-card-subtitle>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon mat-list-icon>account_circle</mat-icon>
+          <div mat-line>{{ user.name }}</div>
+          <div mat-line>Name</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>account_circle</mat-icon>
+          <div mat-line>{{ user.phone }}</div>
+          <div mat-line>Phone</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>account_circle</mat-icon>
+          <div mat-line>{{ user.email }}</div>
+          <div mat-line>E-Mail</div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon mat-list-icon>alt_type</mat-icon>
+          <div mat-line>{{ service.type }}</div>
+          <div mat-line>Type</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="service.messages">
+    <mat-card-subtitle>Messages</mat-card-subtitle>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let message of service.messages">
+          <div mat-line>{{ message.from }}</div>
+          <div mat-line>{{ message.message }}</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <mat-form-field appearance="legacy">
+      <input
+        matInput
+        [(ngModel)]="message"
+        [ngModelOptions]="{ standalone: true }"
+        placeholder="Enter your Message"
+        type="text"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="sendMessage()">
+      Send
+    </button>
+  </mat-card>
+</div>

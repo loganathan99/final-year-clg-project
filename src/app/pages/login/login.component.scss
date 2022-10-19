@@ -1,0 +1,35 @@
+.container {
+    margin: 2em; 
+}
+
+.expanded-toolbar {
+    justify-content: space-between;
+    align-items: center;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.button {
+    margin-right: 8em;
+  
+}
+
+@media only screen and (min-width: 720px) {
+    mat-form-field {
+        width: 60%;
+    }
+
+    .container {
+        margin: 6em;
+    }
+}
+.mat-card-title
+{
+    margin-right: 45%;
+    text-align: center;
+    
+}
+

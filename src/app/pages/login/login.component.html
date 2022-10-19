@@ -1,0 +1,69 @@
+<mat-toolbar color="primary">
+  <span> Sri Annamalaiyar Plumber & Electrician</span>
+</mat-toolbar>
+
+<mat-toolbar color="primary">
+  <span> Service Management</span>
+</mat-toolbar>
+<div class="login-example">
+  <div class="container">
+    <form [formGroup]="loginForm">
+      <h1>Login</h1>
+      <mat-card-title>
+        <mat-icon>account_circle</mat-icon>
+      </mat-card-title>
+      <mat-card>
+        <mat-list>
+          <mat-form-field>
+            <mat-icon matSuffix>email</mat-icon>
+            <input
+              formControlName="email"
+              matInput
+              placeholder="Enter your E-Mail"
+              type="email"
+            />
+            <mat-error
+              *ngIf="
+                loginForm.get('email')?.touched &&
+                loginForm.get('email')?.hasError('required')
+              "
+            >
+              E-Mail is required</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field>
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-label>Password</mat-label>
+            <input
+              formControlName="password"
+              matInput
+              placeholder="Enter your Password"
+              type="password"
+            />
+            <mat-error
+              *ngIf="
+                loginForm.get('password')?.touched &&
+                loginForm.get('password')?.hasError('required')
+              "
+            >
+              Password is required</mat-error
+            >
+          </mat-form-field>
+          <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+          <mat-card-actions>
+            <button mat-raised-button color="accent" (click)="login()">
+              Login
+            </button>
+            <button mat-raised-button color="warn" routerLink="/signup">
+              Register
+            </button>
+
+            <button mat-raised-button color="primary" routerLink="/admin">
+              AdminLogin
+            </button>
+          </mat-card-actions>
+        </mat-list>
+      </mat-card>
+    </form>
+  </div>
+</div>
