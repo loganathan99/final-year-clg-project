@@ -1,17 +1,22 @@
 <div class="header">
-    <span>Your Services</span>
-    <button mat-raised-button color="accent" routerLink="/dashboard/service">New service</button>
+  <span>Your Services</span>
+  <button mat-raised-button color="accent" routerLink="/dashboard/service">
+    New service
+  </button>
 </div>
 
 <div class="service-list" *ngIf="user">
-    <mat-card *ngFor="let service of user.services">
-        <mat-card-subtitle>{{service._id}}</mat-card-subtitle>
-        
-        
+  <mat-card *ngFor="let service of user.services">
+    <mat-card-subtitle>{{ service._id }}</mat-card-subtitle>
 
-        <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="/dashboard/view/{{service._id}}">View</button>
-        </mat-card-actions>
-        
-    </mat-card>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/dashboard/view/{{ service._id }}"
+      >
+        View
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>
